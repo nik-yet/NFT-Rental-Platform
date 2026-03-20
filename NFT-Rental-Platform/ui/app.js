@@ -12,6 +12,8 @@ function log(msg) {
   output.scrollTop = output.scrollHeight;
 }
 
+const activeContractText = document.getElementById("active-contract");
+
 function connect() {
   const href = networkInput.value;
   contractId = contractIdInput.value.trim();
@@ -20,13 +22,19 @@ function connect() {
     return;
   }
   server = new SorobanClient.Server(href);
-  log(`Connected to ${href} contract ${contractId}`);
+  activeContractText.innerText = `Active contract ID: ${contractId}`;
+  log(`Connected to ${href} with contract ${contractId}`);
 }
 
 function getState() {
+  if (!server || !contractId) {
+    alert("Connect first and set contract ID.");
+    return;
+  }
+
   const tokenId = Number(document.getElementById("tokenId").value);
-  log(`Query state for token ${tokenId}`);
-  // TODO: query using contract SDK call for get_owner, get_listing, get_rental.
+  log(`Contract ${contractId} - Query state for token ${tokenId}`);
+
   log(`Owner: [implementation pending]`);
   log(`Listing: [implementation pending]`);
   log(`Rental: [implementation pending]`);
