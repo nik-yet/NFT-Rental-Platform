@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NFT Rental Platform (Permissionless)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>NFT Rental Platform (Soroban)</h1>
+
+    <section>
+      <h2>Contract Setup</h2>
+      <label>Contract ID</label>
+      <input id="contractId" type="text" placeholder="YOUR_CONTRACT_ID" value="YOUR_CONTRACT_ID" />
+      <label>Network</label>
+      <select id="network">
+        <option value="https://horizon-testnet.stellar.org">Testnet</option>
+        <option value="https://horizon.stellar.org">Public</option>
+      </select>
+      <button id="connectBtn">Connect</button>
+    </section>
+
+    <section>
+      <h2>Actions</h2>
+      <div class="row">
+        <label>Token ID</label>
+        <input id="tokenId" type="number" value="1" min="1" />
+      </div>
+      <div class="row">
+        <label>Owner</label>
+        <input id="owner" type="text" placeholder="G..." />
+      </div>
+      <div class="row">
+        <label>Renter</label>
+        <input id="renter" type="text" placeholder="G..." />
+      </div>
+      <div class="row">
+        <label>Price / sec</label>
+        <input id="price" type="number" value="10" min="1" />
+      </div>
+      <div class="row">
+        <label>Duration</label>
+        <input id="duration" type="number" value="60" min="1" />
+      </div>
+
+      <div class="actions">
+        <button id="mintBtn">Mint</button>
+        <button id="listBtn">List</button>
+        <button id="rentBtn">Rent</button>
+        <button id="endBtn">End Rental</button>
+        <button id="transferBtn">Transfer</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data</h2>
+      <div class="row">
+        <button id="refreshBtn">Refresh Owner/Listing/Rental</button>
+      </div>
+      <pre id="output"></pre>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
